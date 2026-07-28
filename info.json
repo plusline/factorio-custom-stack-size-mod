@@ -2,7 +2,7 @@
   "name": "MyStackSizeMod",
   "version": "0.2.0",
   "title": "Custom Stack Size Mod with Function",
-  "author": "YourName",
+  "author": "plusline",
   "description": "提供通用函式來修改物品堆疊數量",
   "factorio_version": "2.1",
    "dependencies": [

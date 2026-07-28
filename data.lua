@@ -9,14 +9,16 @@ local items = {
     ["coal"] = 200,
     ["stone"] = 200,
     ["wood"] = 200,
-    ["promethium-asteroid-chunk"] = 100
+    ["promethium-asteroid-chunk"] = 2
 }
 
-for item_name, size in pairs(items) do
-    local setting = settings.startup["stackmod-enable-" .. item_name]
+for item_name, default_size in pairs(items) do
+    local setting = settings.startup["stackmod-stacksize-" .. item_name]
+    local size = default_size
     if setting and setting.value then
-        set_stack_size(item_name, size)
+        size = setting.value
     end
+    set_stack_size(item_name, size)
 end
 
 

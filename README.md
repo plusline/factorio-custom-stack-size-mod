@@ -25,6 +25,8 @@ A lightweight Factorio mod that adjusts item stack sizes and the exoskeleton mov
 
 ### Movement
 - `stackmod-movement-bonus`
+<img width="565" height="494" alt="image" src="https://github.com/user-attachments/assets/e40b3ae6-da7b-425b-8f40-fedeb5b96098" />
+
 
 ## Installation
 1. Copy this mod folder into your Factorio mods directory.

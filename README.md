@@ -1,47 +1,42 @@
 ﻿# MyStackSizeMod
 
-A lightweight Factorio mod that adjusts item stack sizes during the data stage.
+A lightweight Factorio mod that adjusts item stack sizes and the exoskeleton movement bonus during the data stage.
 
-This mod now exposes per-item numeric startup settings so you can type the desired stack size in the Mods settings UI.
+## Features
+- Changes the stack size of several items.
+- Adds a startup setting for the exoskeleton movement bonus.
+- Organizes settings into two groups in the Mod Settings UI:
+  - Stack size
+  - Movement
 
-**Key changes**
-- Replaced simple enable/disable toggles with `int-setting` inputs named `stackmod-stacksize-<item>` (startup scope).
-- `data.lua` reads those startup values and applies them at data stage; defaults are provided in `settings.lua`.
-- English localization added in `locale/en/mod-settings.cfg` so settings display readable names and descriptions.
+## Default values
+- Coal stack size: 200
+- Stone stack size: 200
+- Wood stack size: 200
+- Promethium Asteroid Chunk stack size: 2
+- Exoskeleton movement bonus: 0.3
 
-## Current defaults
-- `coal`: 200
-- `stone`: 200
-- `wood`: 200
-- `promethium-asteroid-chunk`: 2
+## Settings
+### Stack size
+- `stackmod-stacksize-coal`
+- `stackmod-stacksize-stone`
+- `stackmod-stacksize-wood`
+- `stackmod-stacksize-promethium-asteroid-chunk`
+
+### Movement
+- `stackmod-movement-bonus`
 
 ## Installation
-
 1. Copy this mod folder into your Factorio mods directory.
-2. Launch Factorio and enable the mod in the Mods menu.
-3. Open the mod's Startup settings and set the desired stack sizes (see Testing below).
+2. Enable the mod in the Mods menu.
+3. Open the Startup settings and adjust the values you want.
+4. Restart the game or start a new game for the changes to take effect.
 
-## How to set stack sizes
+## Notes
+- Startup settings require a restart or a new game to apply.
+- The default movement bonus is `0.3`.
+- The setting names and descriptions are defined in `locale/en/mod-settings.cfg`.
 
-Open Mods → MyStackSizeMod → Settings (Startup). For each item you will see a numeric input labeled e.g. "Coal stack size". Enter the integer stack size you want and start a new game.
-
-Examples:
-
-<img width="529" height="490" alt="image" src="https://github.com/user-attachments/assets/18cb28e4-081e-496f-9079-76d2c7f14958" />
-
-## Notes on behavior
-- The setting keys are `stackmod-stacksize-<item>` (startup). Changing a startup setting requires restarting or starting a new game to take effect.
-- Values are clamped by `minimum_value` (1) and `maximum_value` (1,000,000) as defined in `settings.lua`.
-- If a localization entry is missing, Factorio will display an "Unknown key" error; localization entries are provided for English in `locale/en/mod-settings.cfg`.
-
-## Advanced
-- To change defaults, edit `settings.lua` (the `items` table maps item name to default stack size).
-- To add more items, add the item key to the `items` table in both `settings.lua` and (optionally) `data.lua` if you need custom logic.
-
-## Troubleshooting
-- If you see errors about duplicate keys in `locale/*.cfg`, ensure each `[mod-setting-name]` and `[mod-setting-description]` header appears only once per file.
-- If a setting doesn't appear, verify the file `locale/en/mod-settings.cfg` exists and contains the `stackmod-stacksize-...` entries.
-
-## Want translations?
-I can add a Chinese `locale/zh-CN/mod-settings.cfg` for you — tell me if you want Simplified or Traditional Chinese and I'll add it.
-
+## Customization
+- To change the default stack sizes, edit `settings.lua`.
+- To change the default movement bonus, edit the `stackmod-movement-bonus` setting in `settings.lua`.

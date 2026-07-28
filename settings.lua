@@ -14,7 +14,19 @@ for item_name, default_size in pairs(items) do
             default_value = default_size,
             minimum_value = 1,
             maximum_value = 1000000,
-            order = item_name
+            order = "a-stack-size-" .. item_name
         }
     })
 end
+
+data:extend({
+    {
+        type = "double-setting",
+        name = "stackmod-movement-bonus",
+        setting_type = "startup",
+        default_value = 0.3,
+        minimum_value = 0,
+        maximum_value = 100,
+        order = "b-movement"
+    }
+})
